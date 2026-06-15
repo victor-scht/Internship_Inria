@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1780932603.84628 "main.aux" "main.bbl" "main" 1781535262.33216 0
+["bibtex main"] 1780932603.84628 "main.aux" "main.bbl" "main" 1781535544.39092 0
   "./references.bib" 1781535124.64989 3470 1d559b2768df0600ec59abe375cf4b25 ""
   "/home/victor/texlive/2026/texmf-dist/bibtex/bst/base/unsrt.bst" 1292289607 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "main.aux" 1781535262.05348 3883 04c414e4f2045193941a27af949f50bc "pdflatex"
+  "main.aux" 1781535544.10428 3883 04c414e4f2045193941a27af949f50bc "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1781535261.22433 "main.tex" "main.pdf" "main" 1781535262.33243 0
+["pdflatex"] 1781535543.26713 "main.tex" "main.pdf" "main" 1781535544.39104 0
   "/home/victor/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/home/victor/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/home/victor/texlive/2026/texmf-dist/fonts/tfm/jknappen/ec/ecbx0900.tfm" 1136768653 3584 1a7de6c99457381c64abc1a7c545505f ""
@@ -235,11 +235,11 @@
   "/home/victor/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1774546077 3636698 0786b961983ba097f59cf87fff1c01c6 ""
   "/home/victor/texlive/2026/texmf.cnf" 1774546013.5562 496 01ab80fa0036a81d2df86fb0ac70c709 ""
   "figures/logo-inria.png" 1781535124.63001 8149 d6f864ca106f50886c23f36042885ead ""
-  "main.aux" 1781535262.05348 3883 04c414e4f2045193941a27af949f50bc "pdflatex"
+  "main.aux" 1781535544.10428 3883 04c414e4f2045193941a27af949f50bc "pdflatex"
   "main.bbl" 1781535124.62601 994 d9bda73e4e255721b73cab958be69061 "bibtex main"
-  "main.out" 1781535262.05448 3265 2fc5843de8a1d30d100bc6d2b78a1ffd "pdflatex"
-  "main.tex" 1781535260.53848 5069 5ebe262b01f99197c72bfe64ecbd9a3c ""
-  "main.toc" 1781535262.05448 1347 f7bc4009ec0f4d505a891aac96572058 "pdflatex"
+  "main.out" 1781535544.10428 3265 2fc5843de8a1d30d100bc6d2b78a1ffd "pdflatex"
+  "main.tex" 1781535541.54827 5070 1a27b24e891d35eef045418cc7a28f7e ""
+  "main.toc" 1781535544.10532 1347 f7bc4009ec0f4d505a891aac96572058 "pdflatex"
   "report3.tex" 1781535124.64301 4941 3313292d8ac86cf2d083585d217b4567 ""
   "report45.tex" 1781535124.64001 10599 0ea54518102fe726cf30322bf04b8fb9 ""
   "report6.tex" 1781535124.64201 14175 110c9d5c40b44387d621d26f69e5850a ""
