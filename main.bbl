@@ -1,0 +1,28 @@
+\begin{thebibliography}{1}
+
+\bibitem{king_poisson}
+J.~F.~C. Kingman.
+\newblock Poisson processes revisited.
+\newblock {\em Probab. Math. Stat.}, 26(1):77--95, 2006.
+
+\bibitem{frag_deaconu}
+Madalina Deaconu and Antoine Lejay.
+\newblock Probabilistic representations of fragmentation equations.
+\newblock {\em Probab. Surv.}, 20:226--290, 2023.
+
+\bibitem{geo}
+C.~Le~Bouteiller, F.~Naaim-Bouvet, N.~Mathys, and J.~Lavé.
+\newblock A new framework for modeling sediment fining during transport with fragmentation and abrasion.
+\newblock {\em Journal of Geophysical Research: Earth Surface}, 116(F3), 2011.
+
+\bibitem{bochner}
+Donald~L. Cohn.
+\newblock {\em Measure theory}.
+\newblock Birkh{\"a}user Adv. Texts, Basler Lehrb{\"u}ch. New York, NY: Birkh{\"a}user/Springer, 2nd revised ed. edition, 2013.
+
+\bibitem{Billingsley}
+Patrick Billingsley.
+\newblock {\em Convergence of probability measures.}
+\newblock Wiley Ser. Probab. Stat. Chichester: Wiley, 2nd ed. edition, 1999.
+
+\end{thebibliography}

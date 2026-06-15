@@ -1,0 +1,119 @@
+\subsection{Existence d'un processus de Poisson}
+
+\begin{important}
+	Durant cette réunion, on a terminé la présentation des propriétés essentielles des processus de Poisson (voir \cite{king_poisson}). On a notamment montré l'existence de tels processus sur un espace mesurable $S$ dès lors que la mesure d'intensité peut s'écrire sous la forme
+	\[
+		\mu = \sum_{n \in \N} \mu_n,
+	\]
+	où les $\mu_n$ sont des mesures finies sans atome.
+\end{important}
+
+
+L'aspect constructif des processus de Poisson est particulièrement intéressant, car il permet de voir un processus ponctuel comme un ensemble aléatoire
+\[
+	\Pi = \{X_1,\dots,X_N\},
+\]
+où les variables $(X_n)_{n\in\N}$ et $N \sim \aP(\lambda)$ sont indépendantes. Cette représentation permet notamment de \og différencier les points \fg{}. En effet, dans la définition abstraite d'un processus ponctuel, rien ne garantit a priori la possibilité de choisir de manière cohérente des éléments $X\in \Pi$ pour une réalisation donnée.
+
+Cette construction permet également d'introduire naturellement la notion de marginale. Par exemple, si
+\[
+	\Pi \sim \mathcal P(\lambda dx)
+\]
+sur $[0,1]$, alors conditionnellement à $N$, les variables $(X_i)_{1 \le i \le N}$ sont i.i.d. et suivent une loi uniforme sur $[0,1]$. La variable aléatoire
+\[
+	N \sim \mathcal P(\lambda)
+\]
+représente alors le nombre total de points du processus.
+
+\subsection{Processus marqués}
+
+Cette remarque est importante pour introduire les processus ponctuels marqués. On définit un processus marqué
+\[
+	\Pi^* = {(X,m_X) : X \in \Pi},
+\]
+comme un processus ponctuel à valeurs dans un espace produit $S\times M$, où $M$ désigne l'espace des marques. L'idée consiste à associer une marque à chaque point du processus tout en conservant une structure d'indépendance entre les différentes marques.
+
+Plus précisément, si
+\[
+	\Pi = \{X_1,\dots,X_N\}
+\]
+est un processus de Poisson et si $p(x,dm)$ est un noyau de probabilité, alors les marques sont choisies de sorte que
+\[
+	m_{X_i} \sim p(X_i,dm),
+\]
+indépendamment les unes des autres conditionnellement au processus initial.
+
+\begin{important}
+	Dans ce cas, le processus marqué $\Pi^*$ est encore un processus de Poisson d'intensité
+	\[
+		\mu^*(dx,dm)=\mu(dx)p(x,dm).
+	\]
+\end{important}
+
+Ce résultat découle directement de la formule de Campbell, qui permet de caractériser les processus de Poisson. Pour un processus ponctuel $\Pi$, on peut associer une mesure de comptage $N$ définie par
+\[
+	N(f)=\sum_{X\in\Pi} f(X)=\int fdN,
+\]
+pour toute fonction mesurable positive $f$.
+
+\subsection{Formule de Campbell et Application}
+
+\begin{important}
+	La formule de Campbell s'écrit
+	\[
+		\E\left(e^{-N(f)}\right)
+		=
+		\exp\left(
+		-\int (1-e^{-f}),d\mu
+		\right).
+	\]
+	Réciproquement, si cette relation est satisfaite pour toute fonction mesurable positive $f$, alors le processus ponctuel considéré est un processus de Poisson d'intensité $\mu$.
+\end{important}
+
+Une application importante de cette formule concerne les processus ponctuels sur $\R_+$. Si $\Pi$ est un processus de Poisson homogène d'intensité $\lambda>0$, et si l'on ordonne ses points sous la forme
+\[
+	\Pi=\{X_1,\dots,X_n,\dots\},
+\]
+alors les temps d'attente
+\[
+	X_{i+1}-X_i,
+	\qquad i\in\N,
+\]
+(avec la convention $X_0=0$) sont i.i.d. et suivent une loi exponentielle de paramètre $\lambda$.
+
+Pour revenir à l'EDS introduite dans l'article sur les équations de fragmentation (voir \cite{frag_deaconu}), l'idée consiste à reconstruire le processus de fragmentation à partir d'un processus de Poisson ponctuel tridimensionnel
+\[
+	N(ds,du,dv),
+\]
+d'intensité $ds,du,dv$.
+
+\begin{important}
+	Le processus $(\xi_t)_{t\geq0}$ représentant la masse d'une particule typique est alors solution d'une équation différentielle stochastique à sauts de la forme
+	\[
+		\xi_t =
+		\xi_0
+		+
+		\int_0^t\int_{\R_+^2}
+		H(\xi_{s-},u,v),N(ds,du,dv),
+	\]
+	où la fonction
+	\[
+		H(x,u,v) =
+		-u,\mathbf 1_{{u\le x}}\mathbf 1_{{v\le g^{LM}(x,u)}}
+	\]
+	décrit l'effet d'une fragmentation sur la masse de la particule. Cette écriture permet de représenter l'évolution du système comme une accumulation de sauts pilotés par le processus de Poisson ponctuel.
+\end{important}
+
+Cette construction est directement reliée à la chaîne de Markov introduite dans l'article. En effet, lorsque le processus est dans un état $x$, les points du processus de Poisson sont acceptés uniquement dans la région
+\[
+	\Gamma(x)={(u,v)\in\R_+^2 : v\le g^{LM}(x,u)}.
+\]
+L'aire de cette région vaut
+\[
+	|\Gamma(x)|
+	=
+	\int_0^\infty g^{LM}(x,u)du
+	=
+	F(x),
+\]
+ce qui implique que le temps d'attente avant le prochain saut suit une loi exponentielle de paramètre $F(x)$. De plus, conditionnellement au saut, la nouvelle masse est distribuée selon le noyau de fragmentation associé. On retrouve ainsi exactement la dynamique de la chaîne de Markov construite précédemment.

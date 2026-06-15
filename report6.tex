@@ -1,0 +1,256 @@
+\subsection{Equation d'évolution avec opérateur linéaire borné}
+
+On rappelle que l'équation de Focker--Planck obtenue dans l'article \cite{frag_deaconu} s'écrit
+\begin{equation}
+	\frac{d\mu}{dt}(t,dx) = \int \mu(t,dy) F(y) M(y,dx) - F(x) \mu(t,dx).
+	\label{eq:fock}
+\end{equation}
+Et en posant la mesure biaisée par la masse $\nu(t,dx) = x\mu(t,dx)$, on obtient l'équation
+\begin{equation}
+	\frac{d\nu}{dt}(t,dx) = \int \nu(t,dy) F(y) G(y,dx) - F(x) \nu(t,dx).
+	\label{eq:fock_mass}
+\end{equation}
+Si on a conservation de la masse en moyenne, alors $G$ est un noyau de transition tel que le support
+de $G(y, \cdot)$ est $[0,y]$.
+
+De plus, si $\nu(t,dx) = u(t,x) dx$ et $G(y,dx) = g(y,x) dx$, alors le problème peut se formuler
+comme une équation d'évolution :
+
+\begin{equation}
+	\begin{cases}
+		\partial_t u(t,x) = \int_x^{+\infty} u(t,y) g(y,x) F(y) dy - F(x) u(t,x) \\
+		u(0,x) = u_0(x)
+	\end{cases}
+	\label{eq:ev}
+\end{equation}
+
+\begin{important}
+	L'idée pour résoudre une telle équation est de voir $u : [0,T] \to X$ où $X$ est un espace de fonctions et que \ref{eq:ev}
+	peut se réécrire sous la forme :
+	\begin{equation}
+		\begin{cases}
+			\frac{du}{dt}(t) = \aF(u(t)), \quad \forall t \in [0,T] \\
+			u(0) = u_0
+		\end{cases}
+		\label{eq:ev_op}
+	\end{equation}
+	avec $\aF : X \to X$ un opérateur linéaire.
+\end{important}
+
+\begin{thm}{}{edo}
+	Si $X$ est un espace de Banach et que $\aF$ est un opérateur linéaire borné, alors \ref{eq:ev_op} admet une unique solution classique, c'est-à-dire
+	$C^1([0,T], X)$. Dans ce cas, la solution vérifie :
+	\[
+		\forall t \in [0,T], \quad u(t) = \exp(t \aF)u_0.
+	\]
+\end{thm}
+
+\begin{rem}
+	Dans l'article \cite{frag_deaconu}, en supposant que le taux de fragmentation $F$ est une fonction bornée, on obtient que $\aF$ est un opérateur borné de $L^1$. Par conséquent, en posant $X = L^1$ dans le théorème~\ref{thm:edo}, on a l'unicité et l'existence d'une solution classique pour le problème~\ref{eq:ev_op}. On peut également voir que cette solution est de classe $C^\infty([0,T], X)$.
+\end{rem}
+
+\begin{rem}
+	Un argument présenté dans l'article \cite{frag_deaconu} permet également de montrer que si $u_0$ est positive, alors
+	pour tout $t\in [0,T]$, $u(t)$ est aussi positive.
+	C'est un point important car $u(t,x) = \frac{1}{x} c(t,x)$ avec $c(t, \cdot)$ représentant une densité de probabilités.
+\end{rem}
+
+\begin{rem}
+	On remarque aussi que le taux de fragmentation $F(x)$ ne dépend que de la masse. C'est une hypothèse commode qui permet d'assurer la linéarité de l'opérateur
+	$\aF$ et de directement appliquer des résultats classiques pour résoudre l'équation. En revanche, cette hypothèse n'est pas représentative de la réalité physique comme on peut le voir dans l'article \cite{geo}. En effet, la fragmentation d'une particule solide est principalement due à sa collision avec une autre particule. Il n'est donc pas raisonnable d'omettre la dépendance du taux de fragmentation à la concentration des particules dans le système.
+\end{rem}
+
+\subsection{Dépendance du taux de fragmentation à la concentration des particules}
+
+Pour décrire le taux de fragmentation d'une particule, l'article \cite{geo} fait un raisonnement simple :
+\[
+	\mathbb{P}(casser) = \mathbb{P}(casser \mid collision) \mathbb{P}(collision).
+\]
+Il ne reste donc qu'à déterminer les deux probabilités. Pour déterminer le taux de collision, on considère la densité de particules en fonction de leur taille : cela est décrit par une densité $g(r,t)$ avec $r$ étant le rayon d'une particule (le raisonnement a été fait sur des particules sphériques). Notamment, si on considère la concentration $c(x,t)$ des particules en fonction de leur masse, on obtient
+\begin{equation}
+	\begin{cases}
+		g(r,t) = 4\pi r^2 c(x,t) \\
+		x(r) = \frac{4}{3}\pi r^3 \rho
+	\end{cases}
+	\label{eq:dens}
+\end{equation}
+
+Dans l'article, les deux probabilités sont estimées de façon différentes. La première est obtenue à partir d'une régression logistique mettant en relation des paramètres pouvant casser une particule s'il y avait collision.
+La masse n'a pas été considérée comme étant significativement responsable de la fragmentation lors d'une collision. Cela se traduit par le fait que $\mathbb{P}(casser \mid collision)$ est une \og constante \fg{} si on étudie seulement la régularité par rapport à la masse (comme dans notre cas).
+
+En ce qui concerne $\mathbb{P}(collision)$, l'article mène un raisonnement sur la fréquence de collision pour une particule de taille $r$. Ils obtiennent
+\[
+	\mathbb{P}(collision) = \phi(r) = \frac{\pi\langle \tilde{u}^2\rangle^{\frac{1}{2}}}{V} \int (r + r')^2 g(r') dr'.
+\]
+
+\subsection{Résolution de la nouvelle équation d'évolution}
+
+\begin{important}
+	L'équation de Focker--Planck \ref{eq:ev} devient donc de la forme
+	\begin{equation}
+		\begin{cases}
+			\partial_t u(t,x) = \int_x^{+\infty} u(t,y) g(y,x) F(y,u) dy - F(x,u) u(t,x) \\
+			u(0,x) = u_0(x)
+		\end{cases}
+		\label{eq:ev_dep}
+	\end{equation}
+	On remarque que l'on a totalement perdu la linéarité.
+\end{important}
+
+On s'est donc poser la question, quelles hypothèses pouvaient on supposer pour obtenir de nouveau le caractère bien posé du problème~\ref{eq:ev_dep} ?
+
+\begin{important}
+	L'idée est de reformuler l'équation sous la forme suivante :
+	\begin{equation}
+		\begin{cases}
+			\frac{du}{dt}(t) = \aF(u(t)), \quad \forall t \in [0,T] \\
+			u(0) = u_0
+		\end{cases}
+		\label{eq:ev_nonop}
+	\end{equation}
+	avec $\aF : X \to X$ (qui n'est plus forcément linéaire). On cherche une solution classique maximale, c'est-à-dire une fonction $u \in C^1([0,T_0[, X)$ où $T_0$ est le supremum des instants $T > 0$ tel qu'il existe une solution au problème sur un intervalle de temps $[0,T]$. On remarque notamment que $T_0$ n'est plus inclu dans l'intervalle de temps pour lequel on trouve une solution.
+\end{important}
+
+\begin{prop}{}{}
+	On considère l'espace de Banach $X = L^1\left(\R_+, \aB(\R_+),\lambda\right)$. Dans ce cas si le taux de fragmetnation $F : \R_+ \times X \to \R_+$, vérifie les propriétés suivantes, on a existence et unicité d'une solution maximale classique au problème~\ref{eq:ev_nonop} :
+	\begin{enumerate}
+		\item $|F(y, u) - F(y,v)| \le L \|u-v\|_X, \quad \forall y \in \R_+, \forall u,v \in X$ \\
+		\item $C_R = \sup_{u \in B_X(0,R)} \sup_{y \in \R_+}|F(y,u)| < +\infty, \quad \forall R >0$
+	\end{enumerate}
+\end{prop}
+
+\begin{proof}
+	Dans un premier temps, il faut vérifier que $\aF : X \to X$ est bien défini et est continu.
+	\[
+		\aF(u)(x) - \aF(v)(x) = \int g(y,x) \left(F(y,u)u(y) - F(y,v)v(y)\right) dy+
+		\left(F(x,u)u(x) - F(x,v)v(x) \right).
+	\]
+	Comme $g$ représente un noyau de transition, on remarque que
+	\begin{align*}
+		\int \left|\int g(y,x) \left(F(y,u)u(y) - F(y,v)v(y)\right) dy\right| & \le
+		\int  \left|F(y,u)u(y) - F(y,v)v(y)\right| dy                               \\
+		                                                                      & \le
+		C_{\|u\|_X} \|u-v\|_X + L \|u-v\|_X \|v\|_X.
+	\end{align*}
+	De plus,
+	\[
+		\left|\int F(x,u)u(x) - F(x,v)v(x) \right| \le
+		C_{\|u\|_X} \|u-v\|_X + L \|u-v\|_X \|v\|_X.
+	\]
+	On en déduit que
+	\[
+		\|\aF(u) - \aF(v)\|_X \le 2 \left( C_{\|u\|_X} + L \|v\|_X \right) \|u-v\|_X.
+	\]
+	Enfin, en remarquant que $\aF(0) = 0$, on en déduit que $\aF : X \to X$ est d'une part bien définie et d'autre part que $\aF$ est une application lipschitzienne sur toutes boules de $X$ (elle est notamment continue).
+
+	On peut donc définir l'application
+	\[
+		\Phi_T : C([0,T], X) \to C([0,T], X), \quad u
+		\mapsto \left(t \mapsto  u_0 + \int_0^t \aF(u(s)) ds\right).
+	\]
+	Il s'agit d'une intégrale de Bochner dont on pourra notamment vérifier la définition dans \cite{bochner}. On remarque que $u$ est solution du problème sur un intervalle de temps $[0,T]$ si et seulement si $u$ est un point fixe de $\Phi_T$.
+
+	Maintenant, on prend un $R > 2\|u_0\|_X$ et on note $B_R  = \overline{B_X}(0,R)$.
+	On considère désormais que $\Phi_T : C([0,T], B_R) \to C([0,T], X)$. Pour appliquer le théorème du point fixe de Banach, il est primordial que l'ensemble de départ et d'arrivée soit les mêmes. On cherche donc un $T > 0$ tel que $\Phi_T : C([0,T], B_R) \to C([0,T], B_R)$. D'après les inégalités vues précédemment
+	\[
+		\|\left(\Phi_T(u) - \Phi_T(v))(t)\right)\|_X \le
+		2 t \left( C_{R} + L R \right)\|u-v\|_\infty
+	\]
+	En remarquant que $\Phi_T(0) = u_0$ et en posant $K_R = 2 \left( C_{R} + L R \right)$,
+	on a
+	\[
+		\|\Phi_T(u)(t)\|_X \le \|u_0\|_X + K_R t \|u\|_\infty \le \|u_0\|_X + K_R T R
+		< \left(K_R T + \frac{1}{2}\right) R.
+	\]
+	Donc pour un $T$ suffisament petit $\left(\text{par exemple } T < \frac{1}{2 K_R}\right)$, $\Phi_T : C([0,T], B_R) \to C([0,T], B_R)$.
+
+	On a également montré que
+	\[
+		\|\left(\Phi_T(u) - \Phi_T(v))(t)\right)\|_X \le
+		t K_R\|u-v\|_\infty.
+	\]
+	D'où en suivant un raisonnement classique par récurrence, on obtient que
+	\[
+		\|\Phi_T^n(u) - \Phi_T^n(v))\|_\infty \le
+		\frac{\left(T K_R\right)^n}{n !}\|u-v\|_\infty.
+	\]
+	Donc, pour un certain $n \in \N^*$, l'application $\Phi_T^n$ est contractante. On peut donc appliquer le théorème du point fixe de Banach et dire qu'il y a un unique point fixe $u \in C([0,T], B_R)$ pour l'application $\Phi_T^n$. Mais alors,
+	\[
+		\Phi_T^{n}\Phi_T(u) = \Phi_T \Phi_T^n(u) = \Phi_T(u).
+	\]
+	Donc, $\Phi_T(u)$ est aussi un point fixe pour $\Phi_T^n$. Par unicité du point fixe, $\Phi_T(u) = u$ et on a donc prouvé l'existence d'une solution classique du problème. Pour l'unicité, il suffit de remarquer que si $u$ est un point fixe de $\Phi_T$, alors $u$ est aussi un point fixe pour $\Phi_T^n$, ce qui permet de conclure.
+\end{proof}
+
+\begin{rem}
+	On pourrait regarder d'autres espaces de Banach en fonction de la régularité de $u_0$. Par exemple, est-ce que la solution obtenue $u(t)(\cdot)$ est continue si $u_0$ l'est ? Pareil pour le caractère borné. D'autre part, on doit également vérifier si la solution $u(t)(\cdot)$ est positive en tout $0 \le t < T$.
+\end{rem}
+
+\subsection{Convergence en loi : cas des fonctions càdlàg}
+
+En ce qui concerne l'ensemble des fonctions càdlàg sur $[0,1]$ (noté $D$), on a également présenté rapidement les différentes méthodes pour traiter la convergence en loi dans un tel espace de trajectoires. Tous les résultats sont présentés dans le livre~\cite{Billingsley}.
+
+\begin{important}
+	Suivant la théorie des convergences de mesure, on cherche une topologie qui rende l'espace $D$ polonais. Bien que si $x \in D$ alors $\|x\|_\infty < \infty$, cette norme ne peut pas résoudre le problème. En effet, les fonctions $\phi_x = \mathbb{1}_{[0,x[} \in D$ rendent impossible la séparabilité de $(D, \|\cdot\|_\infty)$. En effet, si $D$ est séparable pour la norme uniforme alors $(\phi_x)_{x \in ]0,1]}$ est séparable pour la norme uniforme. Or c'est un espace discret non dénombrable, ce qui entraine une contradiction.
+	Pour résoudre ce point de séparabilité, on introduit la distance de Skorohod qui rend l'espace polonais (bien que cette métrique ne rende pas l'espace complet).
+\end{important}
+
+\begin{prop}{}{}
+	On définit la distance $d_S$ sur l'ensemble des fonctions de $D$ par
+	\[
+		d_S (x,y) = \inf_{\lambda \in \Lambda} \max(\|x - y \circ\lambda\|_\infty,
+		\|\lambda - Id\|_\infty),
+	\]
+	où $\Lambda$ est l'ensemble des bijections continues croissantes de $[0,1]$. Alors, $(D,d_S)$ est une espace polonais.
+\end{prop}
+
+\begin{rem}
+	Même si $(D, d_S)$ est polonais, $(D,d_s)$ n'est pas complet.
+\end{rem}
+
+Enfin, pour utiliser les théorèmes de compacité de Prokhorov, on cherche à caractériser les compacts de $D$. Cela est fait de la même manière que pour l'espace des fonctions continues avec le théorème de Arzela--Ascoli.
+
+\begin{important}
+	La quasi-totalité de la théorie repose sur le fait que si $x \in D$, alors pour tout $\epsilon > 0$, il existe une suite de points $0 = t_0 < \dots < t_r=1$ tel que
+	\[
+		\forall 1 \le i \le r, \quad w_x([t_{i-1}, t_i[) < \epsilon
+	\]
+	où $w_x(T)$ est le module de continuité de $x$ sur un sous-ensemble $T$ de $[0,1]$. Si on note
+	\[
+		w_x'(\delta) = \inf_{\{t_i\}} \max_{1\le i\le r} w_x([t_{i-1}, t_i[),
+	\]
+	où l'indexage sur l'infimum est l'ensemble des suites croissantes finies $(t_i)_{0\le i \le r}$ telles que
+	\begin{align*}
+		 & t_i - t_{i-1} > \delta \\
+		 & t_0= 0, \quad t_r = 1
+	\end{align*}
+	alors la propriété fondamentale des fonctions càdlàg est équivalente à $w_x'(\delta) \to 0$ quand $\delta \to 0$.
+\end{important}
+
+Ici, $w_x'$ joue exactement le même rôle que le module de continuité pour les fonctions continues. On a notamment un équivalent du théorème de Arzela--Ascoli pour les fonctions
+càdlàg
+\begin{thm}{}{arzela_d}
+	Soit $\aA \subset D$ une sous-partie de $D$. Alors $\aA$ est relativement compacte dans la topologie de Skorohod si et seulement si
+	\begin{enumerate}
+		\item $\sup_{x \in \aA} \|x\|_\infty < +\infty$
+		\item $\sup_{x\in \aA} w_x'(\delta) \to 0$ quand $\delta \to 0$.
+	\end{enumerate}
+\end{thm}
+
+\begin{rem}
+	On peut relaxer l'hypothèse 1 du théorrème~\ref{thm:arzela_d} en prenant l'hypothèse plus faible :
+	\[
+		\sup_{x \in \aA} |x(t)| < +\infty, \quad \forall t \in T_0,
+	\]
+	avec $T_0$ une partie dense de $[0,1]$.
+\end{rem}
+
+Maintenant, on peut caractériser la tension d'une famille de mesure de probabilités sur $D$.
+\begin{thm}{}{}
+	Soit $\aM$ une famille de mesure de probabilités sur $D$. Alors, $\aM$ est tendue (ou relativement compacte) si et seulement si :
+	\begin{enumerate}
+		\item $\left(\mu(\pi_t^{-1})\right)_{\mu \in \aM}$ est tendue pour tout $t \in T_0$, avec $T_0$ une sous partie dense de $[0,1]$.
+		\item $\forall \eta > 0, \quad \sup_{\mu \in \aM} \mu \left(\{x \in D : w_x'(\delta) \ge \eta \}\right) \to 0$ quand $\delta \to 0$
+	\end{enumerate}
+\end{thm}
+
+C'est le point de départ pour étudier la convergence en loi des fonctions càdlàg, et comme dans le cas des fonctions  continues, il existe des critères plus pratiques avec notamment des conditions suffisantes sur des moments de variables aléatoires pour prouver la tension.

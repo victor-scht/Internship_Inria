@@ -1,0 +1,373 @@
+\subsection{Équations de McKean--Vlasov}
+
+Durant ces deux réunions, nous avons étudié un exemple classique de limite de champ moyen : les équations de McKean--Vlasov. L'objectif est de comprendre comment décrire le comportement collectif d'un système composé d'un très grand nombre de particules en interaction.
+
+On considère dans un premier temps un système déterministe de $N$ particules. Après une remise à l'échelle adaptée, la dynamique peut s'écrire sous la forme
+\begin{equation}
+	\frac{d}{dt} Z_i^{(N)}(t)
+	=
+	\frac{1}{N}
+	\sum_{j=1}^{N}
+	F\!\left(
+	Z_i^{(N)}(t),
+	Z_j^{(N)}(t)
+	\right),
+	\qquad i=1,\dots,N,
+	\label{eq:mean_field}
+\end{equation}
+où $F$ désigne le noyau d'interaction entre les particules.
+
+Lorsque le nombre de particules devient très grand, il n'est plus raisonnable d'étudier individuellement chacune des trajectoires. On introduit alors la \emph{mesure empirique} du système
+\[
+	\mu_t^{N}
+	=
+	\frac1N
+	\sum_{i=1}^{N}
+	\delta_{Z_i^{(N)}(t)},
+\]
+qui décrit la répartition des particules dans l'espace des états.
+
+Sous des hypothèses de régularité suffisantes sur le noyau $F$, cette mesure empirique satisfait au sens des distributions l'équation de Vlasov
+\begin{important}
+	\begin{equation}
+		\partial_t \mu_t
+		+
+		\nabla \cdot
+		\bigl(
+		\mu_t\,F[\mu_t]
+		\bigr)
+		=
+		0,
+		\label{eq:vlasov}
+	\end{equation}
+	où
+	\[
+		F[\mu](x)
+		=
+		\int_{\R^d}
+		F(x,y)\,\mu(dy).
+	\]
+	On dira qu'une famille de mesures $(\mu_t)_{t\geq0}$ est solution de l'équation de Vlasov si, pour toute fonction test $\varphi\in C_c^1(\R^d)$, l'application
+	\[
+		t\longmapsto \int_{\R^d}\varphi(x)\,\mu_t(dx)
+	\]
+	est dérivable et vérifie
+	\[
+		\frac{d}{dt}
+		\int_{\R^d}
+		\varphi(x)\,\mu_t(dx)
+		=
+		\int_{\R^d}
+		F[\mu_t](x)\cdot \nabla\varphi(x)\,
+		\mu_t(dx),
+	\]
+\end{important}
+
+
+L'idée principale est alors d'étudier le comportement de la famille
+$(\mu^N)_{N\geq 1}$ lorsque $N$ tend vers l'infini. Si la mesure empirique initiale converge vers une mesure limite $\mu_0$, on cherche à montrer que
+\[
+	\mu_t^N
+	\Longrightarrow
+	\mu_t,
+\]
+où $(\mu_t)_{t\geq0}$ est la solution de l'équation de Vlasov associée à la condition initiale $\mu_0$.
+
+Pour étudier cette convergence, nous avons rappelé que l'espace des mesures de probabilité est naturellement muni de la topologie de la convergence étroite. Une stratégie classique consiste à démontrer que la famille des lois des mesures empiriques est relativement compacte, puis à identifier toutes les valeurs d'adhérence possibles comme solutions de l'équation de Vlasov.
+
+\begin{important}
+
+	Le résultat de compacité utilisé repose sur la notion de tension.
+	% \begin{prop}{}{}
+	% 	Soit $E$ un espace polonais et $\aM \subset \aP(\aP(E))$.
+	% 	Alors $\aM$ est tendue si et seulement si, pour tout $\varepsilon>0$,
+	% 	il existe un compact $K \subset E$ tel que
+	% 	\[
+	% 		\sup_{\mathbb P\in\aM}
+	% 		\mathbb P
+	% 		\Bigl(
+	% 		\{
+	% 		\mu\in\aP(E)
+	% 		:
+	% 		\mu(K^c)\geq \varepsilon
+	% 		\}
+	% 		\Bigr)
+	% 		\leq \varepsilon.
+	% 	\]
+	% \end{prop}
+	Le théorème de Prokhorov permet alors de déduire la relative compacité de la famille considérée. Une fois cette étape obtenue, il reste à identifier les limites possibles et à établir l'unicité de la solution de l'équation de Vlasov afin de conclure à la convergence de l'ensemble de la suite.
+\end{important}
+
+Cette approche constitue un premier exemple de passage d'une description microscopique, donnée par un système de particules en interaction, à une description macroscopique gouvernée par une équation aux dérivées partielles.
+
+\subsection{Équations différentielles stochastiques de McKean--Vlasov}
+
+On considère maintenant le pendant stochastique du système précédent. Soient
+$(W^i)_{1\leq i\leq N}$ des mouvements browniens indépendants à valeurs dans $\R^d$.
+Le système de particules en interaction est donné par
+\begin{important}
+	\begin{equation}
+		dX_t^{i,N}
+		=
+		\frac1N
+		\sum_{j=1}^{N}
+		b(X_t^{i,N},X_t^{j,N})\,dt
+		+
+		dW_t^i,
+		\qquad i=1,\dots,N.
+		\label{eq:systeme_particules_stochastique}
+	\end{equation}
+\end{important}
+On suppose dans la suite que $b:\R^d\times\R^d\to\R^d$ est bornée et lipschitzienne.
+
+Comme précédemment, on introduit la mesure empirique
+\[
+	\mu_t^N
+	=
+	\frac1N
+	\sum_{j=1}^{N}
+	\delta_{X_t^{j,N}}.
+\]
+Le système peut alors se réécrire sous la forme
+\[
+	dX_t^{i,N}
+	=
+	\left(
+	\int_{\R^d}
+	b(X_t^{i,N},y)\,\mu_t^N(dy)
+	\right)dt
+	+
+	dW_t^i.
+\]
+Lorsque $N$ tend vers l'infini, on s'attend donc à ce que la mesure empirique $\mu_t^N$
+soit remplacée par une mesure limite déterministe $\mu_t$. La particule typique limite
+doit alors satisfaire l'équation de McKean--Vlasov
+\begin{important}
+	\begin{equation}
+		dX_t
+		=
+		\left(
+		\int_{\R^d}
+		b(X_t,y)\,\mu_t(dy)
+		\right)dt
+		+
+		dW_t,
+		\qquad
+		\aL(X_t)=\mu_t.
+		\label{eq:mckean_vlasov_sde}
+	\end{equation}
+\end{important}
+Cette équation est non linéaire au sens où le coefficient de dérive dépend de la loi
+du processus que l'on cherche à construire.
+
+Pour relier cette EDS à une équation sur les mesures, on applique la formule d'Itô à une
+fonction test $\varphi\in C_c^2(\R^d)$. On obtient
+\[
+	d\varphi(X_t)
+	=
+	\nabla\varphi(X_t)\cdot
+	\left(
+	\int_{\R^d}
+	b(X_t,y)\,\mu_t(dy)
+	\right)dt
+	+
+	\frac12\Delta\varphi(X_t)\,dt
+	+
+	\nabla\varphi(X_t)\cdot dW_t.
+\]
+En prenant l'espérance, le terme martingale disparaît. Comme $\mu_t=\aL(X_t)$, il vient
+\[
+	\frac{d}{dt}
+	\int_{\R^d}
+	\varphi(x)\,\mu_t(dx)
+	=
+	\int_{\R^d}
+	\left[
+		\frac12\Delta\varphi(x)
+		+
+		\left(
+		\int_{\R^d}
+		b(x,y)\,\mu_t(dy)
+		\right)\cdot\nabla\varphi(x)
+		\right]
+	\mu_t(dx).
+\]
+C'est cette identité qui définit l'équation de Fokker--Planck non linéaire au sens faible.
+
+\begin{important}
+	Formellement, elle correspond à l'EDP
+	\begin{equation}
+		\partial_t\mu_t
+		=
+		\frac12\Delta\mu_t
+		-
+		\nabla\cdot
+		\left[
+			\left(
+			\int_{\R^d}
+			b(\cdot,y)\,\mu_t(dy)
+			\right)\mu_t
+			\right].
+		\label{eq:fokker_planck_mckean_vlasov}
+	\end{equation}
+\end{important}
+
+Pour construire rigoureusement la solution de l'équation de McKean--Vlasov, on travaille
+sur l'espace $C_T=C([0,T];\R^d)$ muni de la distance
+\[
+	d_T(x,y)
+	=
+	\sup_{t\in[0,T]}|x(t)-y(t)|\wedge 1.
+\]
+On introduit ensuite la distance de Wasserstein associée :
+\[
+	\aW_T(\mu,\nu)
+	=
+	\inf_{\pi\in\Pi(\mu,\nu)}
+	\int_{C_T\times C_T}
+	d_T(x,y)\,\pi(dx,dy).
+\]
+
+\begin{thm}{}{}
+	Si $E$ est un espace polonais, alors $(\aP(E), \aW)$ est un espace polonais, complet pour la distance de Wasserstein. De plus, la topologie induite par cette métrique est plus fine que celle de la convergence étroite.
+\end{thm}
+
+Pour une mesure $\nu\in\aP(C_T)$, on définit $X^\nu$ comme la solution de l'EDS
+\[
+	X_t^\nu
+	=
+	X_0
+	+
+	\int_0^t
+	\left(
+	\int_{C_T}
+	b(X_s^\nu,w_s)\,\nu(dw)
+	\right)ds
+	+
+	W_t.
+\]
+On note alors $\Phi(\nu)=\aL(X^\nu)$. Une solution de McKean--Vlasov est exactement un
+point fixe de l'application $\Phi$.
+
+Le caractère lipschitzien de $b$ permet de montrer que les itérées de $\Phi$ deviennent
+contractantes pour la distance $\aW_T$. Le théorème du point fixe donne donc l'existence
+et l'unicité de la loi solution.
+
+\subsection{Propagation du chaos}
+
+La section précédente décrit la limite d'une particule typique. Il reste à comprendre en
+quel sens le système complet de particules devient asymptotiquement indépendant lorsque
+$N$ tend vers l'infini. C'est précisément l'objet de la propagation du chaos. On commence par rappeler la notion d'échangeabilité.
+
+\begin{defn}{}{}
+	Une famille de variables aléatoires
+	$(X_1,\dots,X_N)$ à valeurs dans un espace polonais $E$ est dite échangeable si sa loi est
+	invariante par permutation des coordonnées, c'est-à-dire si, pour toute permutation
+	$\sigma$ de $\{1,\dots,N\}$,
+	\[
+		(X_1,\dots,X_N)
+		\overset{(d)}=
+		(X_{\sigma(1)},\dots,X_{\sigma(N)}).
+	\]
+\end{defn}
+
+Dans le système de particules, l'indépendance n'est pas préservée par la dynamique, car les
+particules interagissent. En revanche, si les conditions initiales sont échangeables, alors
+cette propriété reste vraie à tout temps.
+
+Soit maintenant $L^N\in\aP(E^N)$ une suite de lois symétriques, et soit $L\in\aP(E)$.
+On dit que la suite $(L^N)_{N\geq1}$ est $L$-chaotique si, pour tout $k\geq1$ et toutes
+fonctions tests $\varphi_1,\dots,\varphi_k\in C_b(E)$,
+\[
+	\int_{E^N}
+	\varphi_1(x_1)\cdots\varphi_k(x_k)
+	L^N(dx_1,\dots,dx_N)
+	\longrightarrow
+	\prod_{i=1}^{k}
+	\int_E
+	\varphi_i(x)\,L(dx).
+\]
+Autrement dit, tout nombre fini de particules devient asymptotiquement indépendant, et
+chacune a pour loi limite $L$.
+
+Cette notion est équivalente à la convergence de la mesure empirique.
+
+\begin{thm}{}{}
+	Si $(X_1^N,\dots,X_N^N)$ a pour loi $L^N$ et si
+	\[
+		\mu^N
+		=
+		\frac1N
+		\sum_{i=1}^{N}
+		\delta_{X_i^N},
+	\]
+	alors, sous l'hypothèse de symétrie, les assertions suivantes sont équivalentes :
+	\begin{enumerate}
+		\item la suite $(L^N)_{N\geq1}$ est $L$-chaotique ;
+		\item la mesure empirique $\mu^N$ converge en loi vers la mesure déterministe $L$ ;
+		\item la propriété de chaos est vérifiée au rang $k=2$.
+	\end{enumerate}
+\end{thm}
+
+Cette équivalence montre que la propagation du chaos peut être vue comme une loi des
+grands nombres pour des particules échangeables.
+
+Revenons au système de particules
+\[
+	dX_t^{i,N}
+	=
+	\frac1N
+	\sum_{j=1}^{N}
+	b(X_t^{i,N},X_t^{j,N})\,dt
+	+
+	dW_t^i.
+\]
+On le compare au système découplé formé des particules de McKean--Vlasov
+\[
+	d\overline X_t^i
+	=
+	\left(
+	\int_{\R^d}
+	b(\overline X_t^i,y)\,\mu_t(dy)
+	\right)dt
+	+
+	dW_t^i,
+	\qquad
+	\aL(\overline X_t^i)=\mu_t.
+\]
+On choisit le même brownien $W^i$ et la même condition initiale pour $X^{i,N}$ et
+$\overline X^i$. Ce couplage permet de comparer directement les trajectoires.
+
+Sous les hypothèses précédentes, il existe, pour tout $T>0$, une constante $C_T>0$ telle
+que
+\[
+	\E\left[
+	\sup_{t\in[0,T]}
+	|X_t^{i,N}-\overline X_t^i|
+	\right]
+	\leq
+	\frac{C_T}{\sqrt N},
+	\qquad
+	i=1,\dots,N.
+\]
+Ainsi, chaque particule du système en interaction est proche, lorsque $N$ est grand, d'une
+copie indépendante du processus de McKean--Vlasov.
+
+Cette estimation implique la propagation du chaos. En effet, pour un nombre fixé
+$k\geq1$, on obtient
+\[
+	\aW_T
+	\left(
+	\aL(X^{1,N},\dots,X^{k,N}),
+	\aL(\overline X^1,\dots,\overline X^k)
+	\right)
+	\leq
+	\frac{kC_T}{\sqrt N}.
+\]
+Or les processus $\overline X^1,\dots,\overline X^k$ sont indépendants et ont tous pour loi
+$\aL(X)$. On en déduit que
+\[
+	\aL(X^{1,N},\dots,X^{k,N})
+	\Longrightarrow
+	\aL(X)^{\otimes k}.
+\]
