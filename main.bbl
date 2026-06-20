@@ -1,28 +1,59 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{8}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem{king_poisson}
+\bibitem[Kingman(2006)]{king_poisson}
 J.~F.~C. Kingman.
 \newblock Poisson processes revisited.
-\newblock {\em Probab. Math. Stat.}, 26(1):77--95, 2006.
+\newblock \emph{Probab. Math. Stat.}, 26\penalty0 (1):\penalty0 77--95, 2006.
+\newblock ISSN 0208-4147.
 
-\bibitem{frag_deaconu}
+\bibitem[Deaconu and Lejay(2023)]{frag_deaconu}
 Madalina Deaconu and Antoine Lejay.
 \newblock Probabilistic representations of fragmentation equations.
-\newblock {\em Probab. Surv.}, 20:226--290, 2023.
+\newblock \emph{Probab. Surv.}, 20:\penalty0 226--290, 2023.
+\newblock ISSN 1549-5787.
+\newblock \doi{10.1214/23-PS14}.
 
-\bibitem{geo}
+\bibitem[Le~Bouteiller et~al.(2011)Le~Bouteiller, Naaim-Bouvet, Mathys, and Lavé]{geo}
 C.~Le~Bouteiller, F.~Naaim-Bouvet, N.~Mathys, and J.~Lavé.
 \newblock A new framework for modeling sediment fining during transport with fragmentation and abrasion.
-\newblock {\em Journal of Geophysical Research: Earth Surface}, 116(F3), 2011.
+\newblock \emph{Journal of Geophysical Research: Earth Surface}, 116\penalty0 (F3), 2011.
+\newblock \doi{https://doi.org/10.1029/2010JF001926}.
+\newblock URL \url{https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2010JF001926}.
 
-\bibitem{bochner}
+\bibitem[Cohn(2013)]{bochner}
 Donald~L. Cohn.
-\newblock {\em Measure theory}.
+\newblock \emph{Measure theory}.
 \newblock Birkh{\"a}user Adv. Texts, Basler Lehrb{\"u}ch. New York, NY: Birkh{\"a}user/Springer, 2nd revised ed. edition, 2013.
+\newblock ISBN 978-1-4614-6955-1; 978-1-4614-6956-8.
+\newblock \doi{10.1007/978-1-4614-6956-8}.
 
-\bibitem{Billingsley}
+\bibitem[Banasiak and Arlotti(2006)]{semigroup}
+Jacek Banasiak and Luisa Arlotti.
+\newblock \emph{Perturbations of positive semigroups with applications}.
+\newblock Springer Monogr. Math. London: Springer, 2006.
+\newblock ISBN 1-85233-993-4.
+
+\bibitem[Billingsley(1999)]{Billingsley}
 Patrick Billingsley.
-\newblock {\em Convergence of probability measures.}
+\newblock \emph{Convergence of probability measures.}
 \newblock Wiley Ser. Probab. Stat. Chichester: Wiley, 2nd ed. edition, 1999.
+\newblock ISBN 0-471-19745-9.
+
+\bibitem[Paulin(2009)]{paulin}
+Frédéric Paulin.
+\newblock Topologie, analyse et calcul différentiel, 2009.
+\newblock URL \url{https://www.imo.universite-paris-saclay.fr/~frederic.paulin/notescours/cours_analyseI.pdf}.
+\newblock Cours de troisième année de licence, 322 pages.
+
+\bibitem[Blumenthal and Getoor(2007)]{blumenthal}
+R.~M. Blumenthal and R.~K. Getoor.
+\newblock \emph{Markov processes and potential theory}.
+\newblock Mineola, NY: Dover Publications, reprint of the 1968 ed. edition, 2007.
+\newblock ISBN 978-0-486-46263-9.
 
 \end{thebibliography}

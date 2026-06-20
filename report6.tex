@@ -148,7 +148,7 @@ On s'est donc poser la question, quelles hypothèses pouvaient on supposer pour 
 		\Phi_T : C([0,T], X) \to C([0,T], X), \quad u
 		\mapsto \left(t \mapsto  u_0 + \int_0^t \aF(u(s)) ds\right).
 	\]
-	Il s'agit d'une intégrale de Bochner dont on pourra notamment vérifier la définition dans \cite{bochner}. On remarque que $u$ est solution du problème sur un intervalle de temps $[0,T]$ si et seulement si $u$ est un point fixe de $\Phi_T$.
+	Il s'agit d'une intégrale de Bochner dont on pourra notamment vérifier la définition dans \cite{bochner} ou encore dans \cite{semigroup}. On remarque que $u$ est solution du problème sur un intervalle de temps $[0,T]$ si et seulement si $u$ est un point fixe de $\Phi_T$.
 
 	Maintenant, on prend un $R > 2\|u_0\|_X$ et on note $B_R  = \overline{B_X}(0,R)$.
 	On considère désormais que $\Phi_T : C([0,T], B_R) \to C([0,T], X)$. Pour appliquer le théorème du point fixe de Banach, il est primordial que l'ensemble de départ et d'arrivée soit les mêmes. On cherche donc un $T > 0$ tel que $\Phi_T : C([0,T], B_R) \to C([0,T], B_R)$. D'après les inégalités vues précédemment
@@ -241,14 +241,14 @@ càdlàg
 	\[
 		\sup_{x \in \aA} |x(t)| < +\infty, \quad \forall t \in T_0,
 	\]
-	avec $T_0$ une partie dense de $[0,1]$.
+	avec $T_0$ une partie dense de $[0,1]$ qui contient $1$.
 \end{rem}
 
 Maintenant, on peut caractériser la tension d'une famille de mesure de probabilités sur $D$.
 \begin{thm}{}{}
 	Soit $\aM$ une famille de mesure de probabilités sur $D$. Alors, $\aM$ est tendue (ou relativement compacte) si et seulement si :
 	\begin{enumerate}
-		\item $\left(\mu(\pi_t^{-1})\right)_{\mu \in \aM}$ est tendue pour tout $t \in T_0$, avec $T_0$ une sous partie dense de $[0,1]$.
+		\item $\left(\mu(\pi_t^{-1})\right)_{\mu \in \aM}$ est tendue pour tout $t \in T_0$, avec $T_0$ une sous partie dense de $[0,1]$ qui contient $1$.
 		\item $\forall \eta > 0, \quad \sup_{\mu \in \aM} \mu \left(\{x \in D : w_x'(\delta) \ge \eta \}\right) \to 0$ quand $\delta \to 0$
 	\end{enumerate}
 \end{thm}

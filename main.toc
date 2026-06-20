@@ -12,3 +12,7 @@
 \contentsline {subsection}{\numberline {3.2}Dépendance du taux de fragmentation à la concentration des particules}{8}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Résolution de la nouvelle équation d'évolution}{8}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Convergence en loi : cas des fonctions càdlàg}{10}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Rapport : 17/06/2026}{11}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Problème de Cauchy}{11}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Résolution de l'équation de Focker--Planck (cas non linéaire)}{13}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Introduction aux processus de Markov non-homogènes}{15}{subsection.4.3}%

@@ -2,6 +2,9 @@
 \documentclass[9pt]{extarticle}
 
 \usepackage[a4paper]{geometry}
+\usepackage[numbers]{natbib}
+\usepackage{url}
+% \usepackage{microtype}
 
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
@@ -23,6 +26,10 @@
 \usepackage{bbold}
 \usepackage{xcolor}
 \usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\setlist[itemize]{label=\textbullet}
+\setlist[enumerate]{label=(\roman*)}
+
 \tcbuselibrary{theorems}
 
 \pagestyle{fancy}
@@ -44,7 +51,7 @@
   colorlinks=true,
   linktocpage=true,
   linkcolor=myblue,
-  urlcolor=black
+  urlcolor=myblue
 ]{hyperref}
 
 % \definecolor{myteal}{RGB}{20,110,135}
@@ -142,8 +149,12 @@
 
 \newcommand{\aA}{\mathcal{A}}
 \newcommand{\aC}{\mathcal{C}}
+\newcommand{\aD}{\mathcal{D}}
+\newcommand{\aE}{\mathcal{E}}
 \newcommand{\aF}{\mathcal{F}}
+\newcommand{\aG}{\mathcal{G}}
 \newcommand{\aP}{\mathcal{P}}
+\newcommand{\aR}{\mathcal{R}}
 \newcommand{\aB}{\mathcal{B}}
 \newcommand{\aM}{\mathcal{M}}
 \newcommand{\aL}{\mathcal{L}}
@@ -151,7 +162,6 @@
 
 \begin{document}
 
-% Page de garde
 \begin{titlepage}
 
 	\begin{center}
@@ -166,7 +176,7 @@
 		% 	Rapport d'avancement\par}
 
 		{\Huge\bfseries
-			Rapport Hebdomadaires\par}
+			Rapports hebdomadaires\par}
 
 		\vspace{0.5cm}
 
@@ -181,11 +191,11 @@
 
 		{\Large Victor Schmit\par}
 
-		\vspace{0.5cm}
+		\vspace{0.3cm}
 
 		{\large
 			Stage de recherche en mathématiques\\
-			\href{https://www.inria.fr/fr/pasta}{Équipe PASTA} -- \href{https://www.inria.fr/fr/centre-inria-universite-lorraine}{Inria Nancy}\par}
+			Équipe PASTA -- Inria Nancy\par}
 
 	\end{center}
 
@@ -193,19 +203,19 @@
 
 	\noindent
 	\textbf{Tuteurs de stage :}
-	\href{https://iecl.univ-lorraine.fr/membre-iecl/deaconu-madalina/}{Madalina Deaconu}, \href{https://iecl.univ-lorraine.fr/membre-iecl/lejay-antoine/}{Antoine Lejay}
+	Madalina Deaconu, Antoine Lejay
 
 	\vspace{0.3cm}
 
 	\noindent
 	\textbf{École :}
-	\href{https://www.centralesupelec.fr/}{CentraleSupélec}
+	CentraleSupélec
 
 	\vspace{0.3cm}
 
 	\noindent
 	\textbf{Enseignant référent :}
-	\href{https://www.centralesupelec.fr/chercheurs/erick-herbin}{Erick Herbin}
+	Erick Herbin
 
 	\vspace{1cm}
 
@@ -230,7 +240,14 @@
 
 \input{report6}
 
-\bibliographystyle{unsrt}
+\section{Rapport : 17/06/2026}
+
+\input{report7}
+
+% \bibliographystyle{unsrt}
+\begingroup
+\raggedright
+\bibliographystyle{unsrtnat}
 \bibliography{references}
 
 \end{document}

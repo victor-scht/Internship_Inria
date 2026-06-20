@@ -1,0 +1,348 @@
+Durant la réunion on a proposé d'affiner les hypothèses naturelles que l'on pouvait supposer
+pour trouver une solution à l'équation~\ref{eq:ev_nonop}. Enfin, on a également réussi à démontrer
+que l'unique solution $u \in C^1([0,T], L^1)$ vérifiait la proprité importante
+\[
+	\forall t \in [0,T], \quad u(t) \ge 0,\quad \lambda\ p.p.
+\]
+Pour démontrer ces résultats, il est intéressant de rappeler des faits générals sur les problèmes de
+Cauchy.
+
+\subsection{Problème de Cauchy}
+
+Soit $E$, un espace de Banach et $f : U \to E$ tel que $U \subset \R \times E$ est un ouvert. Un problème de Cauchy
+se décrit par l'équation
+
+\begin{equation}
+	\begin{cases}
+		v'(t) = f(t,v(t)) \\
+		v(t_0) = u_0,
+	\end{cases}
+	\label{eq:cauchy}
+\end{equation}
+avec $u_0 \in E$ et $t_0 \in \R$. On verra alors que si $f$ vérifie certaines conditions de régularité,
+alors le problème admet une unique solution maximale \ref{defn:cauchy}.
+
+\begin{defn}{Problème de Cauchy}{cauchy}
+	\begin{itemize}
+		\item On dit que $(u,I)$ est une solution au problème de Cauchy \ref{eq:cauchy} si
+		      \[
+			      \begin{cases}
+				      \forall t \in I, \ u'(t) = f(t,u(t)) \\
+				      \forall t \in I, \ (t,u(t)) \in U    \\
+				      t_0 \in I, \quad u(t_0) = u_0.
+			      \end{cases}
+		      \]
+		      avec $I$ un intervalle ouvert de $\R$.
+		\item On dit que deux solutions $(u, I) \le (v,J)$ si $I \subset J$ et si $v_{|I} = u$. C'est une relation d'ordre sur l'ensemble
+		      des solutions au problème de Cauchy.
+		\item Une solution maximale $(u,I)$ est une solution qui est maximale pour la relation d'ordre définie précédemment.
+	\end{itemize}
+\end{defn}
+
+L'existence et l'unicité de solutions dépendent principalement de la régularité de la fonction $f$. Par exemple,
+si $f$ est semi-lipschitzienne et continue, alors le problème de Cauchy admet une unique solution maximale.
+
+\begin{defn}{semi-lipschitzianité}{}
+	La fonction $f$ est semi-lipschitzienne si pour tout $(t_0, x_0)\in U$, il existe une constante $c > 0$, un voisinage ouvert $I$ qui contienne $t_0$ et
+	un voisinage ouvert $V$ qui contienne $x_0$ tel que $I \times V \subset U$ et
+	\[
+		\forall t \in I,\forall x,y \in V, \quad \|f(t,x) - f(t,y)\| \le c \|x-y\|.
+	\]
+\end{defn}
+
+Les résultats suivants viennent de \cite{paulin}.
+
+\begin{thm}{}{}
+	\begin{itemize}
+		\item Si $f$ est semi-lipschitzienne et continue, alors le problème de Cauchy \ref{eq:cauchy} admet une unique solution maximale $(u_{t_0, u_0}, I_{t_0, u_0})$.
+		\item si $f$ est de classe $C^k$ alors une solution $u$ est de classe $C^{k+1}$.
+	\end{itemize}
+\end{thm}
+
+\begin{defn}{Résolvante}{}
+	Si pour tout $(t, x) \in U$, le problème de Cauchy admet une unique solution maximale $(u_{t,x}, I_{t,x})$, on peut poser $\aD = \left\{(s,t,x) \ :\ s \in I_{t,x} \right\}$ et définir la résolvante
+	\[
+		\aR : \aD \to E, \quad (s,t,x) \mapsto u_{t,x}(s).
+	\]
+	Dans ce cas, on peut également définir les ensembles $U_{s,t} = \{x \in E \ : \ (s,t,x) \in \aD\}$ pour tous $s,t \in \R$ et l'application
+	\[
+		\aR_{s,t} : U_{s,t} \to E, \quad x \mapsto u_{t,x}(s)
+	\]
+\end{defn}
+
+\begin{thm}{}{}
+	Si $f$ est une application semi-lipschitzienne et continue, alors $\aD$ est ouvert et pour tout $(s_0, t_0, x_0) \in \aD$, il existe un voisinage ouvert
+	$V \subset \aD$ de $(s_0, t_0, x_0)$ tel que $\aR$ est lipschitzienne sur $V$.
+\end{thm}
+
+La notion de résolvante est particulièrement intéressant pour le cas linéaire du problème de Cauchy
+\begin{equation}
+	\begin{cases}
+		v'(t) = A(t) \cdot v(t) + b(t) \\
+		v(0) = u_0
+	\end{cases}
+	\label{eq:cauchy_lin}
+\end{equation}
+Avec $A : I \to \aL(E)$ et $b : I \to E$ continues. Dans ce cas l'unique solution maximale est définie sur $I$ tout entier.
+Pour résudre ce problème, on considère le cas plus simple où
+\[
+	v'(t) = A(t) \cdot v(t),
+\]
+et on note $\aR$ la résolvante de cette équation.
+
+\begin{prop}{}{}
+	\begin{enumerate}
+		\item $\forall t,s \in I, \quad \aR_{s,t} \in \aG\aL(E)$
+		\item $\forall \alpha, s, t \in I, \quad \aR_{s,\alpha} \circ \aR_{\alpha, t} = \aR_{s,t}$.
+		\item $\forall t \in I$, on définit
+		      \[
+			      Y : I \to \aL(E), \quad Y(s) \mapsto \aR_{s,t}.
+		      \]
+		      $Y$ est la solution maximale de l'équation
+		      \[
+			      \frac{dY}{ds} = Y \circ A(s), \quad Y(0) = Id_E.
+		      \]
+	\end{enumerate}
+\end{prop}
+
+Cette interprétation est très pratique car elle permet de résoudre le problème de Cauchy affine (avec $b(t) \neq 0$) en utilisant la méthode
+de variaion de la constante.
+
+\begin{prop}{}{}
+	Le problème de Cauchy affine admet une unique solution maximale $(u, I)$ telle que
+	\[
+		\forall t \in I, \quad u(t) = \aR_{t,t_0} \cdot u_0 + \int_{t_0}^t \aR_{t,s}\cdot b(s) ds.
+	\]
+\end{prop}
+
+\subsection{Résolution de l'équation de Focker--Planck (cas non linéaire)}
+
+On cherche à résoudre l'équation \ref{eq:ev_nonop}. Pour cela on définit
+\[
+	f(w,v)(x) = \int g(y,x) F(y,w) v(y) dy, \quad h(w,v)(x) = -F(x,w)v(x)
+\]
+et
+\[
+	\bar{f}(v) = f(v,v), \quad \bar{h}(v) = h(v,v).
+\]
+Le problème \ref{eq:ev_nonop}, se reformule donc
+\begin{equation}
+	\begin{cases}
+		v'(t) = \bar{f}(v(t)) + \bar{h}(v(t)) \\
+		v(0) = u_0
+	\end{cases}
+	\label{eq:ev_new}
+\end{equation}
+
+\begin{prop}{}{}
+	On suppose que $F : L^1 \to L^\infty$ est localement lipschitzienne. Alors,
+	\begin{enumerate}
+		\item $f : L^1 \times L^1 \to L^1$ et $h : L^1 \times L^1 \to L^1$.
+		\item $\bar f$ et $\bar h$ sont localement lipschitziennes.
+		\item $\forall v \in L^1, \ $ $\aA(v) = h(v, \cdot) \in \aL(L^1)$.
+		\item $v \mapsto \aA(v)$ est continue.
+	\end{enumerate}
+\end{prop}
+
+Le fait que $\bar f$ et $\bar h$ soient localement lipschitziennes impliquent nécessairement l'existence d'une unique solution maximale
+$(u,I)$ telle que $u \in C^1(I, L^1)$ pour le problème \ref{eq:ev_new}. Pour la suite on considérera la restriction de $I$ à $\R_+$. D'où, on considère que $I$ est de la forme $[0, \alpha[$.
+De plus, si on pose $A(t) = \aA(u(t))$ et $b(t) = \bar f (u(t))$, alors
+$(u,I)$ est l'unique solution maximale du problème
+\begin{equation}
+	\begin{cases}
+		v'(t) = b(t) + A(t) \cdot v(t) \\
+		v(0) = u_0.
+	\end{cases}
+	\label{eq:ev_lin}
+\end{equation}
+Donc, si on note la résolvante $\aR^A$ pour le problème
+\[
+	v'(t) = A(t) \cdot v(t),
+\]
+alors,
+\[
+	\forall t \in I, \quad u(t) = \aR^A_{t,0}(u_0) + \int_{0}^t \aR^A_{t,s} \cdot b(s) ds
+	= \aR^A_{t,0}(u_0) + \int_{0}^t \aR^A_{t,s} \cdot \bar f (u(s)) ds
+\]
+On peut donc prouver le résultat suivant :
+
+\begin{prop}{}{}
+	Si $(u, I)$ est la solution maximale du problème \ref{eq:ev_nonop} où $u_0 \ge 0$, alors il existe $\varepsilon > 0$ tel $\forall t \in [0,\varepsilon[, \ u(t) \ge 0$.
+\end{prop}
+
+\begin{proof}
+	Si $(u, I)$ est la solution maximale et que $[0,T] \subset I$, alors u est un point fixe de l'application
+	\[
+		\Phi_T^0 : C([0,T], L^1) \to C([0,T], L^1)
+	\]
+	définie par
+	\[
+		\Phi_T^0(v)(t) = \aR^A_{t,0}(u_0) + \int_{0}^t \aR^A_{t,s} \cdot \bar f (v(s)) ds, \quad \forall t \in [0,T].
+	\]
+	On rappelle que $\aR^A$ et $\bar f$ sont localement lipschitziennes. Par conséquent, si $T$ est suffisament proche de $0$ et si $v, w$ sont suffisament proches de $u_0$, alors
+	\[
+		\|\Phi_T^0(w) -
+		\Phi_T^0(v)\| \le T K \|w-v\|.
+	\]
+	Donc, si $T$ est assez petit, alors l'application $\Phi_T^0$ est contractante. De plus, on peut également choisir $T$ correctement pour que
+	\[
+		\Phi_T^0 : C([0,T], \bar{B}(u_0, r)) \to C([0,T], \bar{B}(u_0, r))
+	\]
+	et
+	\[
+		\forall t \in [0,T], \quad u(t) \in  \bar{B}(u_0, r).
+	\]
+	Alors, l'application $u$ restreinte à $[0,T]$ est l'unique point fixe de $\Phi_T^0$.
+	Enfin, on remarque que l'ensemble $L^1_+ = \{v \in L^1 \ : \ v \ge 0\}$ est un fermé de $L^1$ et on note $B_+ = L^1_+ \cap \bar{B}(u_0, r)$.
+	Pour conclure, on suppose que $\Phi_T^0$ envoie des éléments $C([0,T], L^1_+)$ dans $C([0,T], L^1_+)$. Par conséquent, l'application
+	\[
+		\Phi_T^1 : C([0,T], B_+) \to C([0,T], B_+)
+	\]
+	(vue comme la restriction de $\Phi_T^0$) est contractante et admet un point fixe $v$.
+
+	\medskip
+
+	On conclut en remarquant que $v$ est également un point fixe pour $\Phi_T^0$.
+	Or, l'application $\Phi_T^0$ admet pour unique point fixe l'application $u$. Donc les deux solutions $u$ et $v$ sont identiques. D'où pour tout $t \in [0,T], \ u(t) \in L^1_+$.
+\end{proof}
+
+\begin{lem}{}{}
+	$L^1_+ = \{v \in L^1 \ : \ v \ge 0\}$ est fermé dans $L^1$.
+\end{lem}
+
+\begin{proof}
+	Soit $f_n \in L^1_+$ tel que $f_n \to f \in L^1$ quand $n \to +\infty$. Alors, il existe une sous-suite $(f_{\varphi(n)})$ de $(f_n)$ telle que
+	\[
+		f_{\varphi(n)} \to f \quad \lambda \ p.p.
+	\]
+	On note $C$ l'ensemble des points où il y a convergence et $P_n$ l'ensemble des points $x$ où $f_n(x) \ge 0$. En posant
+	$A = C \cap \left(\cap_{n \in \N}P_n \right)$,
+	on obtient que
+	\[
+		\forall x \in A \quad f(x) \ge 0, \quad \lambda(A^c) = 0.
+	\]
+	Donc $f \in L^1_+$.
+\end{proof}
+
+\begin{lem}{}{pos}
+	Soit $T > 0$ tel que $[0,T] \subset I$, alors
+	\[
+		\Phi_T : C([0,T], L^1_+) \to C([0,T], L^1_+).
+	\]
+\end{lem}
+
+\begin{proof}
+	Pour prouver ce résultat, on va directement déterminer la résolvante $\aR^A$. On rappelle que cette résolvante est associée au problème
+	\begin{equation}
+		v'(t) = - \alpha(t) v(t)
+		\label{eq:ev_fin}
+	\end{equation}
+	avec $\alpha(t) = F(\cdot, u(t)) \in L^{\infty}$. On sait que
+	\[
+		\alpha : [0,T] \to L^\infty
+	\]
+	et que $\alpha$ est continue. Par conséquent, comme $L^\infty$ est une algèbre de Banach commutative, on peut définir
+	\[
+		\psi(t,s) = \exp\left(-\int_s^t \alpha(s) ds \right) \in L^\infty.
+	\]
+	Alors, l'application $\psi(\cdot , s) : [0,T] \to L^\infty$ est de classe $C^1$.
+	On montre sans problème que la résolvante
+	\[
+		\aR^A_{s,t} = \psi(s,t).
+	\]
+	où $L^\infty$ peut être vu comme un sous-ensemble de $\aL(L^1)$.
+	Pour conclure, on remarque que $R_{s,t}^A : L^1_+ \to L^1_+$, que $\bar f : L^1_+ \to L^1_+$ et que
+	l'intégrale de Bochner préserve également la positivité. On en conclut que
+	\[
+		\Phi_T(v)(t) = \aR^A_{t,0}(u_0) + \int_{0}^t \aR^A_{t,s} \cdot \bar f (v(s)) ds \in L^1_+, \quad \forall t \in [0,T].
+	\]
+\end{proof}
+
+Avec ces deux lemmes, on vient de prouver que la positivité est une propriété qui se préserve localement à droite.
+Avec un raisonnement simple, on peut montrer que cette propriété se préserve sur tout l'intervalle $I$.
+
+\begin{rem}
+	Pour démontrer le lemme \ref{lem:pos}, on a fait l'hypothèse supplémentaire que si $u \in L^1_+$, alors $F(\cdot , u) : L^1_+ \to L^1_+$. Cela est cohérent avec la définition de l'article \cite{geo} qui donne une formule explicite pour le taux de fragmentation \ref{eq:dens}.
+\end{rem}
+
+\begin{prop}{}{}
+	Soit $(u,I)$, l'unique solution au problème de Cauchy \ref{eq:ev_nonop}, alors pour tout $t \in I$, $\quad u(t) \in L^1_+$.
+\end{prop}
+
+\begin{proof}
+	On pose $J = \{t \in I \ : \ u(t) \notin L^1_+\}$ un ouvert de $I$ et on le suppose non vide. On note $0 \le m = \inf J$. Comme $0 \notin J$, alors $m \notin J$.
+	On en déduit que $u(m) \in L^1_+$. Donc d'après le résultat précédent, il existe un $\varepsilon > 0$ tel que pour tout $0 \le  t < \varepsilon$,
+	$u(m + t) \in L^1_+$. Cela contredit que $m$ est une borne inférieur pour $J$. On en déduit que $J$ est vide et que pour tout $t\in I$, $u(t) \in L^1_+$.
+\end{proof}
+
+\subsection{Introduction aux processus de Markov non-homogènes}
+
+On a également pu présenter des éléments concernant les processus de Markov généraux et en particulier, non-homogènes. En effet, dans l'article \cite{frag_deaconu}, l'équation
+de mesure introduisait naturellement un générateur infinitésimal pour la génération d'une chaîne de Markov. Cela ne peut pas fonctionner ici car le potentiel candidat pour le \og générateur infinitésimal \fg{} n'est pas linéaire.
+Cela rend donc impossible toute construction d'un processus de Markov homogène caractérisé par un semi-groupe de transition.
+Néanmoins, cela n'empêche pas a priori de construire un processus de Markov qui décrive l'équation de mesure. D'après le livre de Blumenthal \cite{blumenthal}, on a donc rappelé la définition générale d'un processus de Markov.
+
+\begin{defn}{}{}
+	Soit $(\Omega, \aF, (\aF_t)_{t \ge 0}, \mathbb{P})$ un espace probabilisé filtré et $(X_t)_{t \ge 0}$ un processus adapté à valeurs dans $(E, \aE)$. On dit que le processus $X$ est markovien
+	si pour tout $t \ge 0$, les tribus $\aF_t$ et $\aF^t =\sigma(X_s : s \ge t)$ sont indépendantes conditionnellement à $X_t$. Cela se traduit par :
+	\[
+		\forall A \in \aF_t, B \in \aF^t, \quad \mathbb{P}(A \cap B \mid X_t) =  \mathbb{P}(A \mid X_t) \mathbb{P}(B \mid X_t).
+	\]
+\end{defn}
+
+On fait ensuite l'identification commode : soit $X$ une variable aléatoire et $\aG \subset \aA$ deux tribus. On dit que
+\[
+	\E(X \mid \aG) = \E(X \mid \aA)
+\]
+si pour tout $A \in \aA$, on a
+\[
+	\E(\E(X \mid \aG)\mathbb{1}_A) = \E(\E(X \mid \aA)\mathbb{1}_A).
+\]
+Cela ne veut pas dire que $\E(X \mid \aA)$ est $\aG$-mesurable. Dans ce cas, on a la caractérisation de la propriété de Markov par la proposition suivante.
+
+\begin{prop}{}{}
+	Les proposition suivantes sont équivalentes :
+	\begin{enumerate}
+		\item $X$ est un processus de Markov
+		\item Soit $Y$ une fonction $\aF^t$-mesurable bornée, alors $\E(Y \mid \aF_t) = \E(Y \mid X_t)$.
+		\item $\forall t \le s$ et $f$ une application $\aE$-mesurable bornée, $\E(f\circ X_s \mid X_t) = \E(f\circ X_s \mid \aF_t)$.
+	\end{enumerate}
+\end{prop}
+
+Pour construire, une chaîne de Markov dans un cadre très général, on peut utiliser une famille de probabilités de transition $(P_{t,s})$.
+
+\begin{defn}{}{}
+	Une famille de probabilités de transition sur $(E,\mathcal E)$ est une famille de noyaux
+	$(P_{t,s})_{0\le t\le s}$
+	telle que :
+
+	\begin{enumerate}
+		\item pour tous $0\le t\le s$, $P_{t,s}(x,\cdot)$ est une probabilité sur $(E,\mathcal E)$ ;
+
+		\item pour tout $A\in\mathcal E$, l'application
+		      \[
+			      x\longmapsto P_{t,s}(x,A)
+		      \]
+		      est $\mathcal E$-mesurable ;
+
+		\item la relation de Chapman--Kolmogorov est satisfaite :
+		      \[
+			      P_{t,s}(x,A)
+			      =
+			      \int_E P_{r,s}(y,A)\,P_{t,r}(x,dy),
+			      \qquad 0\le t\le r\le s.
+		      \]
+	\end{enumerate}
+\end{defn}
+
+La relation de Chapman--Kolmogorov exprime la compatibilité temporelle des transitions. Elle permet de reconstruire les lois finies-dimensionnelles d'un processus de Markov. Plus précisément, sous des hypothèses usuelles de mesurabilité, une mesure initiale $\mu$ sur $(E,\mathcal E)$ et une famille de probabilités de transition $(P_{t,s})_{0\le t\le s}$ déterminent un processus de Markov dont les probabilités de transition sont données par les noyaux $P_{t,s}$.
+
+\medskip
+
+Dans le cas particulier où $P_{t,s}=P_{s-t}$,
+les probabilités de transition ne dépendent que de l'écart temporel. Le processus est alors dit homogène en temps. La relation de Chapman--Kolmogorov devient
+\[
+	P_{t+s}=P_tP_s,
+	\qquad t,s\ge0,
+\]
+c'est-à-dire que la famille $(P_t)_{t\ge0}$ forme un semi-groupe de Markov.
