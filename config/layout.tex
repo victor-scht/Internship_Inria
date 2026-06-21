@@ -1,0 +1,35 @@
+% Lists
+
+\setlist[itemize]{
+	label=\textbullet
+}
+
+\setlist[enumerate]{
+	label=(\roman*)
+}
+
+
+% Header/footer
+
+\pagestyle{fancy}
+
+\fancyhf{}
+
+\fancyhead[L]{
+	\includegraphics[
+		height=0.7cm
+	]{figures/logo-inria.png}
+}
+
+\fancyhead[R]{
+	\nouppercase{\leftmark}
+}
+
+\fancyfoot[C]{
+	\thepage
+}
+
+
+\renewcommand{\headrulewidth}{0.4pt}
+
+\setlength{\headheight}{25pt}

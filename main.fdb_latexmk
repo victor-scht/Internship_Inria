@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1781972896.155 "main.aux" "main.bbl" "main" 1781996272.79404 0
-  "./references.bib" 1781705010.78139 4971 60fcc7af55bcf4fe32108840d1ab5085 ""
+["bibtex main"] 1782040561.97719 "main.aux" "main.bbl" "main" 1782040563.47296 0
+  "./bibliography/references.bib" 1782040477.63741 4971 60fcc7af55bcf4fe32108840d1ab5085 ""
   "/home/victor/texlive/2026/texmf-dist/bibtex/bst/natbib/unsrtnat.bst" 1233624470 24550 a41a6405f4de768c43e871d9fbce2bc8 ""
-  "main.aux" 1781996272.39587 5509 d9ced85daa2f3e59e9db732b3af0205c "pdflatex"
+  "main.aux" 1782040563.15571 5522 0d58171dad57a5e6b7054a45baffae2d "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1781996271.40938 "main.tex" "main.pdf" "main" 1781996272.79428 0
+["pdflatex"] 1782040562.087 "main.tex" "main.pdf" "main" 1782040563.47308 0
   "/home/victor/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/home/victor/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/home/victor/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -240,16 +240,23 @@
   "/home/victor/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1774546017 5573042 bd2d289ed6ba30c58d7af00206987198 ""
   "/home/victor/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1774546077 3636698 0786b961983ba097f59cf87fff1c01c6 ""
   "/home/victor/texlive/2026/texmf.cnf" 1774546013.5562 496 01ab80fa0036a81d2df86fb0ac70c709 ""
-  "figures/logo-inria.png" 1780582479.03241 8149 d6f864ca106f50886c23f36042885ead ""
-  "main.aux" 1781996272.39587 5509 d9ced85daa2f3e59e9db732b3af0205c "pdflatex"
-  "main.bbl" 1781972896.25879 2547 77d9675053be83b36e3aa91ebe5a1ee7 "bibtex main"
-  "main.out" 1781996272.39613 4295 a8b6c9a13148bf71034173009feb6f70 "pdflatex"
-  "main.tex" 1781705125.319 5110 4e4a4ddd6a9082d663dc9fc24422aa84 ""
-  "main.toc" 1781996272.39669 1759 136363b4591a140008f968c0f140081e "pdflatex"
-  "report3.tex" 1781966192.39956 4941 3313292d8ac86cf2d083585d217b4567 ""
-  "report45.tex" 1780931964.47244 10599 0ea54518102fe726cf30322bf04b8fb9 ""
-  "report6.tex" 1781965826.34265 14241 970c8f1f45e4efd3830cc1853bc6132c ""
-  "report7.tex" 1781996269.98505 15085 45d4e74c2cefe207066c3abe1d73f0e6 ""
+  "config/colors.tex" 1782039009.89243 357 fb49651d5b0083ef84708c81e068fd2b ""
+  "config/commands.tex" 1782039003.53446 474 bdf7601f21fea0fedd1046c5fef34d05 ""
+  "config/layout.tex" 1782039007.58644 359 c5cc626d297e939cf08f4fda9902280e ""
+  "config/packages.tex" 1782038653.59805 393 d19176ed6f7b22340aef55aacee34ca6 ""
+  "config/settings.tex" 1782039011.97242 88 b5e153b830e8fdce04eb8d87e5e5625c ""
+  "config/theorem.tex" 1782039020.93338 1226 86da02fbc8e25f1d00a830e2d65057c2 ""
+  "config/titlepage.tex" 1782039547.71736 951 48688460514720fcd2e735453b265bc2 ""
+  "content/report3.tex" 1782040348.8828 4972 c179ab92cbf94397ac8aa19696c2935a ""
+  "content/report45.tex" 1782040395.75766 10644 4c9be1479eca3d53b77350c85d20ca08 ""
+  "content/report6.tex" 1782040399.23965 14272 443e179ab4882e36cbf0f884778bce74 ""
+  "content/report7.tex" 1782040380.7657 15117 83b4f2fbe2bf7ee1c4a84ed8181679f9 ""
+  "figures/logo-inria.png" 1782038694.64335 8283 e5f36ef6a2dd50c3b6316031b910fbc8 ""
+  "main.aux" 1782040563.15571 5522 0d58171dad57a5e6b7054a45baffae2d "pdflatex"
+  "main.bbl" 1782040562.08215 2547 77d9675053be83b36e3aa91ebe5a1ee7 "bibtex main"
+  "main.out" 1782040563.15659 4295 a8b6c9a13148bf71034173009feb6f70 "pdflatex"
+  "main.tex" 1782040559.22616 484 0b19425c2bc4cda862970144cc416ccd ""
+  "main.toc" 1782040563.15659 1759 136363b4591a140008f968c0f140081e "pdflatex"
   (generated)
   "main.aux"
   "main.log"
